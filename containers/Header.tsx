@@ -10,7 +10,7 @@ import { MyContext } from "@/store/MyContext";
 import Image from "next/image";
 
 const Header = ({ cartCount }: { cartCount?: number | string }) => {
-  const { state, dispatch } = useContext(MyContext);
+  const { state, dispatch } = useContext<any>(MyContext);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleToggleSidebar = () => {

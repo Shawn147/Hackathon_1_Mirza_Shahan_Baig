@@ -7,8 +7,8 @@ import { Product } from "@/types";
 import { FC, useContext, useEffect, useState } from "react";
 
 const ProductList = () => {
-  const { state, dispatch } = useContext(MyContext);
-  const [products, setProducts] = useState([]);
+  const { state, dispatch } = useContext<any>(MyContext);
+  const [products, setProducts] = useState<any[]>([]);
   useEffect(() => {
     async function getData() {
       const projects = await getProjects();

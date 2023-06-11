@@ -6,7 +6,7 @@ import { FC, useContext } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
 const ProductCard: FC<Product> = (item) => {
-  const { state, dispatch } = useContext(MyContext);
+  const { state, dispatch } = useContext<any>(MyContext);
 
   const isInCart = () => {
     return state.cartItems.find((c: any) => c.productid == item._id);

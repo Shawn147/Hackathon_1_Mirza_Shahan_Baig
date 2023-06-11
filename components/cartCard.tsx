@@ -20,7 +20,7 @@ const CartCard: FC<cartTypes> = ({
   imageSrc,
   quantity,
 }) => {
-  const { state, dispatch } = useContext(MyContext);
+  const { state, dispatch } = useContext<any>(MyContext);
 
   const [qty, setQty] = useState<number>(quantity);
   const addAction = () => {
@@ -50,7 +50,7 @@ const CartCard: FC<cartTypes> = ({
         </h3>
         <div>
           <p className="text-xs mt-3 md:mt-0">Price</p>
-          <p className="text-secondary font-bold">${parseInt(price)}</p>
+          <p className="text-secondary font-bold">${parseInt(price + "")}</p>
         </div>
         <div>
           <p className="text-xs mt-3 md:mt-0">Quantity</p>
@@ -74,7 +74,9 @@ const CartCard: FC<cartTypes> = ({
         </div>
         <div>
           <p className="text-xs mt-3 md:mt-0">Total</p>
-          <p className="text-secondary font-bold">{parseInt(qty * price)}</p>
+          <p className="text-secondary font-bold">
+            {parseInt(qty * price + "")}
+          </p>
         </div>
       </div>
       <button

@@ -16,7 +16,7 @@ const CartCont = () => {
       productid={item.productid}
     />
   );
-  const { state, dispatch } = useContext(MyContext);
+  const { state, dispatch } = useContext<any>(MyContext);
 
   return (
     <div className="flex flex-wrap md:flex-nowrap md:m-24 m-4 justify-between">

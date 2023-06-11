@@ -3,17 +3,17 @@
 import { deleteCartEntry } from "@/store";
 import { MyContext } from "@/store/MyContext";
 import { CardElement } from "@stripe/react-stripe-js";
-import { useContext, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 
 const CartSummary = () => {
   const [isComplete, setIsComplete] = useState(false);
-  const { state, dispatch } = useContext(MyContext);
+  const { state, dispatch } = useContext<any>(MyContext);
   const subTotal = state.cartItems.reduce(
     (a: any, b: any) => parseInt(a) + parseInt(b.price),
     0
   );
-  const tax = parseInt((subTotal / 100) * 2.5);
+  const tax = parseInt((subTotal / 100) * 2.5 + "");
   const total = subTotal + tax + 15 - 20;
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();

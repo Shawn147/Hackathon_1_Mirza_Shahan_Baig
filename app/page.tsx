@@ -2,12 +2,11 @@
 import { Header, HeroScreen, ProductList } from "@/containers";
 import { getCartItems } from "@/store";
 import { MyContext } from "@/store/MyContext";
-import { MyContextType } from "@/types";
 import { useContext, useEffect } from "react";
 import "tailwindcss/tailwind.css";
 
-const Home = ({ data }) => {
-  const { state, dispatch } = useContext<MyContextType>(MyContext);
+const Home = () => {
+  const { state, dispatch } = useContext<any>(MyContext);
   useEffect(() => {
     async function getData() {
       dispatch({ type: "ISLOADING", payload: true });
