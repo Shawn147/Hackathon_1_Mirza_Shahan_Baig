@@ -25,7 +25,7 @@ const Header = ({ cartCount }: { cartCount?: number | string }) => {
       {/* Logo */}
       <div className="flex w-32 h-32 items-center">
         <img
-          className="w-48 h-24 md:w-full md:h-full object-contain"
+          className=" w-32 h-32 object-contain"
           src="/logo.webp"
           alt="Logo"
         />
