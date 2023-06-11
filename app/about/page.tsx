@@ -14,7 +14,7 @@ const About = () => {
     <main className="">
       <Header handleToggleSidebar={handleToggleSidebar} />
       {isSidebarOpen && <Sidebar />}
-      <p>About</p>
+      <p className="mt-24">About</p>
     </main>
   );
 };

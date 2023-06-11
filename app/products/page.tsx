@@ -15,7 +15,9 @@ const Page = () => {
     <main className="">
       <Header handleToggleSidebar={handleToggleSidebar} />
       {isSidebarOpen && <Sidebar />}
-      <ProductList />
+      <div className=" my-32">
+        <ProductList />
+      </div>
     </main>
   );
 };

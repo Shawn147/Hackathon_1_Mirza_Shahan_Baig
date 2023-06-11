@@ -14,6 +14,7 @@ const Contact = () => {
     <main className="">
       <Header handleToggleSidebar={handleToggleSidebar} />
       {isSidebarOpen && <Sidebar />}
+      <p className="mt-24">Contact</p>
     </main>
   );
 };
