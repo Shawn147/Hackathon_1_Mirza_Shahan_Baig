@@ -23,7 +23,7 @@ export const MyContextProvider = ({ children }: any) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <MyContext.Provider value={{ state, dispatch }}>
+    <MyContext.Provider value={{ state, dispatch } as any}>
       {children}
     </MyContext.Provider>
   );

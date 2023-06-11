@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { Toaster } from "react-hot-toast";
 
 const CartCont = () => {
-  const renderCard = (item, index) => (
+  const renderCard = (item: any, index: number) => (
     <CartCard
       key={index.toString()}
       imageSrc={item.product?.image}
