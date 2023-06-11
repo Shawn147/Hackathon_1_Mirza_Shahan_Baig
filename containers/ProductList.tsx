@@ -2,6 +2,7 @@
 import { ProductCard } from "@/components";
 import Loader from "@/components/loader";
 import { getProjects } from "@/sanity/sanity.utils";
+import { getCartItems } from "@/store";
 import { MyContext } from "@/store/MyContext";
 import { Product } from "@/types";
 import { FC, useContext, useEffect, useState } from "react";
@@ -11,15 +12,33 @@ const ProductList = () => {
   const [products, setProducts] = useState<any[]>([]);
   useEffect(() => {
     async function getData() {
+      dispatch({ type: "ISLOADING", payload: true });
       const projects = await getProjects();
+      const data = await getCartItems();
+      dispatch({ type: "CART", payload: data });
+
       setProducts(projects);
     }
-    getData();
+    try {
+      getData();
+    } finally {
+      dispatch({ type: "ISLOADING", payload: false });
+    }
   }, []);
+
   const renderCard: FC<Product> = (item, index) => (
     <ProductCard {...item} key={index.toString()} />
   );
-
+  useEffect(() => {
+    async function getData() {
+      dispatch({ type: "ISLOADING", payload: true });
+    }
+    try {
+      getData();
+    } finally {
+      dispatch({ type: "ISLOADING", payload: false });
+    }
+  }, []);
   return (
     <div className="flex gap-12 py-12 flex-wrap overflow-x-auto ml-8 flex-row text-black">
       {state.isLoading ? (

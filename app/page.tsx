@@ -6,19 +6,6 @@ import { useContext, useEffect } from "react";
 import "tailwindcss/tailwind.css";
 
 const Home = () => {
-  const { state, dispatch } = useContext<any>(MyContext);
-  useEffect(() => {
-    async function getData() {
-      dispatch({ type: "ISLOADING", payload: true });
-      const data = await getCartItems();
-      dispatch({ type: "CART", payload: data });
-    }
-    try {
-      getData();
-    } finally {
-      dispatch({ type: "ISLOADING", payload: false });
-    }
-  }, []);
   return (
     <main className="">
       <Header />
