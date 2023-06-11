@@ -19,7 +19,7 @@ const CartCont = () => {
   const { state, dispatch } = useContext<any>(MyContext);
 
   return (
-    <div className="flex flex-wrap md:flex-nowrap md:m-24 m-4 justify-between">
+    <div className="flex flex-wrap md:flex-nowrap md:m-24 m-4 md:justify-between justify-center">
       {state.isLoading ? (
         <Loader />
       ) : state.cartItems?.length ? (

@@ -21,6 +21,8 @@ const ProductList = () => {
     }
     try {
       getData();
+    } catch (err) {
+      console.log("Err", err);
     } finally {
       dispatch({ type: "ISLOADING", payload: false });
     }
