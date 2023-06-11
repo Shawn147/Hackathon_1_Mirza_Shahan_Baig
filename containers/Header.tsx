@@ -7,13 +7,12 @@ import { FaBars, FaShoppingCart } from "react-icons/fa";
 import Sidebar from "./Sidebar";
 import Tabs from "./Tabs";
 
-const Header = ({ cartCount }: { cartCount?: number | string }) => {
+const Header = ({
+  handleToggleSidebar,
+}: {
+  handleToggleSidebar?: () => void;
+}) => {
   const { state, dispatch } = useContext<any>(MyContext);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  const handleToggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
 
   return (
     <header className=" bg-primary flex items-center w-full justify-between px-4 md:px-24 h-24">
@@ -48,7 +47,6 @@ const Header = ({ cartCount }: { cartCount?: number | string }) => {
       </Link>
 
       {/* Sidebar */}
-      {isSidebarOpen && <Sidebar />}
     </header>
   );
 };

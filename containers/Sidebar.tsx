@@ -5,7 +5,7 @@ import Link from "next/link";
 const Sidebar = ({}) => {
   return (
     <div className="relative z-1000">
-      <aside className="fixed  flex flex-col top-24 left-0 w-64 h-screen bg-primary px-4 py-6 ">
+      <div className="fixed overflow-hidden flex flex-col top-24 left-0 w-64 h-screen bg-primary px-4 py-6 ">
         <SearchBar
           style={
             "w-full  flex items-center bg-white text-placeholder rounded p-1 border-2 border-secondary focus:outline-none focus:ring focus:ring-primary"
@@ -31,7 +31,7 @@ const Sidebar = ({}) => {
             Contact
           </Link>
         </div>
-      </aside>
+      </div>
     </div>
   );
 };
