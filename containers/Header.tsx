@@ -15,7 +15,7 @@ const Header = ({
   const { state, dispatch } = useContext<any>(MyContext);
 
   return (
-    <header className="fixed top-0 left-0 bg-primary flex items-center w-full justify-between px-4 md:px-24 h-24">
+    <header className="fixed top-0 left-0 z-50 bg-primary flex items-center w-full justify-between px-4 md:px-24 h-24">
       {/* Sidebar Toggle Button */}
       <div className="md:hidden">
         <FaBars onClick={handleToggleSidebar} className="text-2xl text-white" />
