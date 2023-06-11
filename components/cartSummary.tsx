@@ -55,8 +55,6 @@ const CartSummary = () => {
             base: {
               fontSize: "18px",
               padding: "18px",
-              border: "1px solid #000",
-              marginBottom: "12px",
             },
           },
         }}
