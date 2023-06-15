@@ -1,9 +1,8 @@
 "use client";
 import { Header, HeroScreen, ProductList } from "@/containers";
 import Sidebar from "@/containers/Sidebar";
-import { getCartItems } from "@/store";
-import { MyContext } from "@/store/MyContext";
-import { useContext, useEffect, useState } from "react";
+import { useState } from "react";
+import { Toaster } from "react-hot-toast";
 import "tailwindcss/tailwind.css";
 
 const Home = () => {
@@ -19,6 +18,7 @@ const Home = () => {
 
       <HeroScreen />
       <ProductList />
+      <Toaster position="top-right" reverseOrder={false} />
     </main>
   );
 };

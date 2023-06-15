@@ -6,6 +6,7 @@ import { getCartItems } from "@/store";
 import { MyContext } from "@/store/MyContext";
 import { Product } from "@/types";
 import { FC, useContext, useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 
 const ProductList = () => {
   const { state, dispatch } = useContext<any>(MyContext);
@@ -15,8 +16,8 @@ const ProductList = () => {
       dispatch({ type: "ISLOADING", payload: true });
       const projects = await getProjects();
       const data = await getCartItems();
+      toast.success("Success");
       dispatch({ type: "CART", payload: data });
-
       setProducts(projects);
     }
     try {
