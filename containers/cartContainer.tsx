@@ -6,6 +6,7 @@ import { useContext } from "react";
 import { Toaster } from "react-hot-toast";
 
 const CartCont = () => {
+  const { state, dispatch } = useContext<any>(MyContext);
   const renderCard = (item: any, index: number) => (
     <CartCard
       key={index.toString()}
@@ -16,7 +17,6 @@ const CartCont = () => {
       productid={item.productid}
     />
   );
-  const { state, dispatch } = useContext<any>(MyContext);
 
   return (
     <div className="flex flex-wrap md:flex-nowrap  md:justify-between  mx-12 my-32 md:mx-12  justify-center">

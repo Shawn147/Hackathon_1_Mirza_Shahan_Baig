@@ -1,5 +1,5 @@
 "use client";
-import { deleteCartEntry } from "@/store";
+import { addToCart, deleteCartEntry } from "@/store";
 import { MyContext } from "@/store/MyContext";
 import Image from "next/image";
 import { FC, useContext, useState } from "react";
@@ -22,14 +22,35 @@ const CartCard: FC<cartTypes> = ({
 }) => {
   const { state, dispatch } = useContext<any>(MyContext);
 
-  const [qty, setQty] = useState<number>(quantity);
-  const addAction = () => {
-    setQty(qty + 1);
+  const addAction = async () => {
+    const newArr = [...state.cartItems];
+    const findItem = newArr.find((c) => {
+      return c.product._id == productid;
+    });
+    if (findItem) {
+      findItem.quantity += 1;
+    }
+    dispatch({ type: "CART", payload: newArr });
+    try {
+      const data = await addToCart({
+        productId: productid,
+        price,
+        quantity,
+      });
+      console.log("data", data);
+    } catch (err) {
+      console.log("err", err);
+    }
   };
   const minusAction = () => {
-    if (qty > 1) {
-      setQty(qty - 1);
+    const newArr = [...state.cartItems];
+    const findItem = newArr.find((c) => {
+      return c.product._id == productid;
+    });
+    if (findItem) {
+      findItem.quantity -= 1;
     }
+    dispatch({ type: "CART", payload: newArr });
   };
   const deleteEntry = async () => {
     dispatch({ type: "ISLOADING", payload: true });
@@ -63,7 +84,7 @@ const CartCard: FC<cartTypes> = ({
             >
               <FaMinus className="mx-4 text-xs text-primary " />
             </button>
-            <p className="text-secondary font-bold ">{qty}</p>
+            <p className="text-secondary font-bold ">{quantity}</p>
             <button
               onClick={addAction}
               className="items-center hover:bg-gray-400 h-6 justify-center ml-2 border-secondary bg-primaryLight rounded-lg"
@@ -75,7 +96,7 @@ const CartCard: FC<cartTypes> = ({
         <div>
           <p className="text-xs mt-3 md:mt-0">Total</p>
           <p className="text-secondary font-bold">
-            {parseInt(qty * price + "")}
+            ${parseInt(quantity * price + "")}
           </p>
         </div>
       </div>

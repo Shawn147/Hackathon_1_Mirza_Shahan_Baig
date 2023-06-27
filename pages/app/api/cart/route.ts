@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
       const updateItem = await drizzle(client)
         .update(cartTable)
         .set({
-          quantity: existingItem?.quantity + quantity,
+          quantity: existingItem?.quantity + 1,
           updatedat: new Date(),
         })
         .where(eq(existingItem.productid, productId))
