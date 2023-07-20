@@ -32,6 +32,9 @@ module.exports = {
         primary: "#ed378f",
         secondary: "#f37b31",
         primaryLight: "rgba(237, 55, 143, 0.2)",
+        placeholder: "#d1d5da",
+        navy: "#111827",
+        lpurple: "#f9bc98",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

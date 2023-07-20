@@ -1,4 +1,4 @@
 "use client";
-export default function Error() {
-  return <main>Error...</main>;
+export default function Error(err) {
+  return <main>Error... {JSON.stringify(err)}</main>;
 }

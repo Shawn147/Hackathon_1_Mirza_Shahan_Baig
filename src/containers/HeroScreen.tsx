@@ -28,7 +28,7 @@ const HeroScreen = () => {
           </Link>
         </div>
       </div>
-      <div className="relative justify-center items-center w-full p-12 md:p-24 ">
+      <div className="relative justify-center items-center w-3/5 p-12 md:p-24 ">
         <div className="absolute md:right-24 right-12 h-3/4 w-3/4 p-12 md:p-24 rounded-full bg-primaryLight"></div>
         <img
           className="object-cover relative z-10 w-full h-full"

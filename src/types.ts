@@ -27,3 +27,14 @@ export type MyContextType = {
   state: any;
   dispatch: any;
 };
+export type PromotionCard = {
+  title: string;
+  desc: string;
+  btnTitle?: string;
+};
+export type PromotionCard2 = {
+  title: string;
+  oldPrice: string;
+  price: string;
+  image?: string;
+};
