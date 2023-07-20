@@ -26,6 +26,7 @@ module.exports = {
         secondary: "#f37b31",
         placeholder: "#919191",
         primaryLight: "rgba(237, 55, 143, 0.2)",
+        blue: "#007aff",
       },
       backgroundColor: {
         primary: "#ed378f",

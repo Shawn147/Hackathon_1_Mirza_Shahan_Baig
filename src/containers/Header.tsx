@@ -22,27 +22,23 @@ const Header = ({}) => {
 
       {/* Logo */}
       <div className="flex w-32 h-32 items-center">
-        <img
-          className=" w-32 h-32 object-contain"
-          src="/Logo.webp"
-          alt="Logo"
-        />
+        <img className=" w-32 h-32 object-contain" src="/Logo.png" alt="Logo" />
       </div>
       <Tabs />
       <SearchBar
         style={
-          " flex items-center h-10 hidden md:block w-1/4 bg-white text-placeholder rounded p-1 border-2 border-secondary focus:outline-none focus:ring focus:ring-primary "
+          " flex items-center h-10 hidden md:block w-1/5 bg-white text-placeholder rounded-full border-2 overflow-hidden p-1 border-secondary focus:outline-none focus:ring focus:ring-primary "
         }
       />
       {/* Cart Icon */}
-      <Link href="/cart" className="relative">
+      <Link href="/cart" className="relative bg-white p-3 rounded-full">
         {state.cartItems?.length ? (
           <p className="text-badge absolute text-white bg-secondary w-3 text-center top-0 right-1 rounded-full">
             {state.cartItems?.length}
           </p>
         ) : null}
 
-        <FaShoppingCart className="text-white text-2xl" />
+        <FaShoppingCart className="text-primary text-2xl" />
       </Link>
 
       {/* Sidebar */}

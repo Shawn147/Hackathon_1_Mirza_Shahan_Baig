@@ -3,7 +3,7 @@ import { RiSearchLine } from "react-icons/ri";
 const SearchBar = ({ style }: { style?: string }) => {
   return (
     <div className={style}>
-      <div className="flex absolute py-1 px-1.5  items-center">
+      <div className="flex absolute py-1 px-1.5 items-center">
         <RiSearchLine className="text-xl" />
       </div>
       <input
