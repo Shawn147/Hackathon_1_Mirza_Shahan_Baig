@@ -5,7 +5,7 @@ const Promotions = () => {
   return (
     <div className="">
       <div className="w-full text-center">
-        <p className="text-blue font-semibold">PROMOTIONS</p>
+        <p className="text-blue text-sm font-semibold">PROMOTIONS</p>
         <h1 className="font-semibold text-5xl mt-4">Our Promotions Events</h1>
       </div>
       <div className="flex w-full px-4 md:px-24 gap-4 mt-8">

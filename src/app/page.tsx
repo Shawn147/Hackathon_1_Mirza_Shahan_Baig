@@ -1,7 +1,5 @@
 import { Header, HeroScreen, ProductList, Promotions } from "@/containers";
-import { getCartItems } from "@/store";
 import { Toaster } from "react-hot-toast";
-import "tailwindcss/tailwind.css";
 
 export default async function Page() {
   return (
@@ -9,11 +7,10 @@ export default async function Page() {
       <Header />
       <HeroScreen />
       <Promotions />
-
-      {/* <div className="w-full text-center">
-        <p className="text-blue font-semibold">PRODUCTS</p>
+      <div className="w-full text-center mt-24">
+        <p className="text-blue text-sm font-semibold">PRODUCTS</p>
         <h1 className="font-semibold text-5xl mt-4">Check What We Have</h1>
-      </div> */}
+      </div>
       <ProductList />
       <Toaster position="top-right" reverseOrder={false} />
     </main>
