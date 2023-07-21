@@ -1,40 +1,37 @@
 "use client";
 import { ProductCard } from "@/components";
-import Loader from "@/components/loader";
 import { getProjects } from "@/sanity/sanity.utils";
 import { Product } from "@/types";
 import { FC } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "tailwindcss/tailwind.css";
-
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+import Loader from "@/components/loader";
 const ProductList = async () => {
   const projects = await getProjects();
-  const renderCard: FC<Product> = (item, index) => (
-    <ProductCard {...item} key={index.toString()} />
-  );
+  const responsive = {
+    0: { items: 1 },
+    568: { items: 2 },
+    1024: { items: 3 },
+    2048: { items: 4 },
+  };
+
+  const items = projects.map((item, index) => {
+    return <ProductCard {...item} key={index.toString()} />;
+  });
   return (
-    <div className="flex gap-12 py-12 flex-wrap overflow-x-auto ml-8 flex-row text-black">
-      <Swiper
-        spaceBetween={10}
-        slidesPerView={1}
-        pagination={{ clickable: true }}
-        navigation
-      >
-        {projects.map((product, index) => (
-          <SwiperSlide key={index}>
-            <img
-              src={product.image}
-              alt={product.name}
-              className="h-64 w-full object-cover"
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-      {projects?.length ? (
-        projects.map(renderCard)
-      ) : (
-        <Loader title={"No Products Found"} />
-      )}
+    <div className="flex justify-center mt-12 mx-24 w-auto">
+      <AliceCarousel
+        mouseTracking
+        items={items}
+        responsive={responsive}
+        controlsStrategy="alternate"
+        activeIndex={0}
+        autoPlayInterval={1000}
+        autoPlay
+        infinite
+        disableButtonsControls
+      />
     </div>
   );
 };

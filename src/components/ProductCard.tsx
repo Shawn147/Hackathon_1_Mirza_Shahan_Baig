@@ -30,7 +30,7 @@ const ProductCard: FC<Product> = (item) => {
     }
   };
   return (
-    <div className="w-64 md:w-96 h-64 md:h-96 mx-2 rounded overflow-hidden shadow-lg">
+    <div className="w-64 md:w-96 h-64 md:h-96 mx-2 my-12 rounded overflow-hidden shadow-lg">
       <img
         src={image}
         alt="Product Image"
