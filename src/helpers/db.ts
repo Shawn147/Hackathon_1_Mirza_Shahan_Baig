@@ -9,3 +9,5 @@ const pool = new Pool({
 });
 
 const db = drizzle(pool);
+
+export const fetcher = (...args) => fetch(...args).then(res => res.json())
