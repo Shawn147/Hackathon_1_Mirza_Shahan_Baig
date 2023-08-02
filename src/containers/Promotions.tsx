@@ -8,8 +8,8 @@ const Promotions = () => {
         <p className="text-blue text-sm font-semibold">PROMOTIONS</p>
         <h1 className="font-semibold text-5xl mt-4">Our Promotions Events</h1>
       </div>
-      <div className="flex w-full px-4 md:px-24 gap-4 mt-8">
-        <div className=" flex  flex-col w-3/5 gap-4">
+      <div className="flex mx-auto flex-col lg:flex-row w-full px-4 md:px-24 gap-4 mt-8">
+        <div className=" flex sm:mx-auto justify-center flex-col w-full w-full lg:w-3/5 gap-4">
           <PromotionCard1
             title={"GET UP TO 60%"}
             desc={"For the summer season"}
