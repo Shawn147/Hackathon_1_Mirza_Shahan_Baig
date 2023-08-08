@@ -5,6 +5,7 @@ import CartCont from "./cartContainer";
 import Promotions from "./Promotions";
 import NewsLetter from "./newsLetter";
 import Footer from "./Footer";
+import ProductDetails from "./productDetails";
 
 export {
   Header,
@@ -14,4 +15,5 @@ export {
   CartCont,
   Promotions,
   ProductList,
+  ProductDetails,
 };

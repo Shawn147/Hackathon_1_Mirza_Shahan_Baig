@@ -5,11 +5,9 @@ import "tailwindcss/tailwind.css";
 const Page = async () => {
   const projects = await getProjects();
   return (
-    <main className="">
+    <main className="my-32">
       <Header />
-      <div className=" my-32">
-        <ProductList projects={projects} />
-      </div>
+      <ProductList projects={projects} />
     </main>
   );
 };

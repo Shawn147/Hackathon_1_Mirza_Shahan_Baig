@@ -14,7 +14,10 @@ module.exports = {
         badge: "8px",
       },
       width: {
-        card: "256px",
+        card: "512px",
+      },
+      height: {
+        card: "512px",
       },
       borderColor: {
         primary: "#ed378f",

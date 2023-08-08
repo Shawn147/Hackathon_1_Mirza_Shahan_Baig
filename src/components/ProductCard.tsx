@@ -2,6 +2,7 @@
 import { addToCart, deleteCartEntry } from "@/store";
 import { MyContext } from "@/store/MyContext";
 import { Product } from "@/types";
+import Link from "next/link";
 import { FC, useContext } from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
@@ -31,35 +32,37 @@ const ProductCard: FC<Product> = (item) => {
   };
   return (
     <div className="w-64 md:w-96 h-64 md:h-96">
-      <div className="m-6 rounded overflow-hidden shadow-lg">
-        <img
-          src={image}
-          draggable={false}
-          alt="Product Image"
-          className="w-full md:h-64 h-36 object-contain"
-        />
-        <div className="px-6 py-4">
-          <p className="font-bold h-10 md:h-16 text-xs md:text-lg">{name}</p>
-          <div className="flex justify-between items-center">
-            <p className="text-secondary font-bold text-lg mr-2">$ {price}</p>
-            {isInCart() ? (
-              <span
-                onClick={addOrRemove}
-                className="text-primary hover:bg-primaryLight text-lg cursor-pointer"
-              >
-                <FaShoppingCart />
-              </span>
-            ) : (
-              <span
-                onClick={addOrRemove}
-                className="text-primary hover:bg-primaryLight text-2xl cursor-pointer"
-              >
-                <AiOutlineShoppingCart />
-              </span>
-            )}
+      <Link href={"/products/" + item._id} className="">
+        <div className="m-6 rounded overflow-hidden shadow-lg">
+          <img
+            src={image}
+            draggable={false}
+            alt="Product Image"
+            className="w-full md:h-64 h-36 object-contain"
+          />
+          <div className="px-6 py-4">
+            <p className="font-bold h-10 md:h-16 text-xs md:text-lg">{name}</p>
+            <div className="flex justify-between items-center">
+              <p className="text-secondary font-bold text-lg mr-2">$ {price}</p>
+              {isInCart() ? (
+                <span
+                  onClick={addOrRemove}
+                  className="text-primary hover:bg-primaryLight text-lg cursor-pointer"
+                >
+                  <FaShoppingCart />
+                </span>
+              ) : (
+                <span
+                  onClick={addOrRemove}
+                  className="text-primary hover:bg-primaryLight text-2xl cursor-pointer"
+                >
+                  <AiOutlineShoppingCart />
+                </span>
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };
