@@ -1,16 +1,53 @@
-import toast from "react-hot-toast"
+import toast from "react-hot-toast";
 
-export const getCartItems =async () => {
+export const getCartItems = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/cart", {
+    const res = await fetch(process.env.BASE_URL + "cart", {
       cache: "no-cache",
     });
     const resJson = res.json();
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-    // toast.success("hello");
+    toast.success("hello");
     return resJson;
+  } catch (err) {
+    console.log("err", err);
+  }
+};
+export const loginAction = async ({ payload, dispatch }) => {
+  dispatch({ type: "ISLOADING", payload: true });
+  try {
+    console.log("payload", payload, process.env);
+
+    //   const res = await fetch(process.env.BASE_URL + "login", {
+    //     cache: "no-cache",
+    //     body: payload,
+    //   });
+    //   const resJson = res.json();
+    //   if (!res.ok) {
+    //     throw new Error("Failed to fetch data");
+    //   }
+    //   toast.success("login successfully");
+    //   console.log(resJson);
+  } catch (err) {
+    console.log("err", err);
+  } finally {
+    dispatch({ type: "ISLOADING", payload: false });
+  }
+};
+export const signupAction = async ({ payload }) => {
+  try {
+    const res = await fetch(process.env.BASE_URL + "signup", {
+      cache: "no-cache",
+      body: payload,
+    });
+    const resJson = res.json();
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    toast.success("signup successfully");
+    console.log(resJson);
   } catch (err) {
     console.log("err", err);
   }
