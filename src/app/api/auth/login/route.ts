@@ -8,7 +8,6 @@ export async function POST(request: NextRequest) {
   try {
     const req = await request.json();
     const { email, password } = req;
-
     // Check if user with provided email exists
     const existingUserQuery = await client.query(
       "SELECT * FROM users WHERE email = $1",
@@ -46,7 +45,10 @@ export async function POST(request: NextRequest) {
       message: "Login successful",
     });
   } catch (error) {
-    return NextResponse.json({ error: "An error occurred during login" });
+    return NextResponse.json({
+      message: "An error occurred during login",
+      error,
+    });
   } finally {
     client.release();
   }

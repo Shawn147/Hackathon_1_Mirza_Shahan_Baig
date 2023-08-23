@@ -15,28 +15,40 @@ export const getCartItems = async () => {
     console.log("err", err);
   }
 };
-export const loginAction = async ({ payload, dispatch }) => {
+export const loginAction = async ({
+  payload,
+  dispatch,
+}: {
+  payload: any;
+  dispatch: any;
+  router: any;
+}) => {
   dispatch({ type: "ISLOADING", payload: true });
   try {
-    console.log("payload", payload, process.env);
-
-    //   const res = await fetch(process.env.BASE_URL + "login", {
-    //     cache: "no-cache",
-    //     body: payload,
-    //   });
-    //   const resJson = res.json();
-    //   if (!res.ok) {
-    //     throw new Error("Failed to fetch data");
-    //   }
-    //   toast.success("login successfully");
-    //   console.log(resJson);
+    const res = await fetch(process.env.BASE_URL + "auth/login", {
+      cache: "no-cache",
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+    const resJson = await res.json();
+    if (resJson.status != 200) {
+      toast.error(resJson.message);
+    } else {
+      localStorage.setItem("profile", JSON.stringify(resJson.userData));
+      toast.success(resJson.message);
+      window.location.assign("http://localhost:3000/");
+    }
   } catch (err) {
     console.log("err", err);
   } finally {
     dispatch({ type: "ISLOADING", payload: false });
   }
 };
-export const signupAction = async ({ payload }) => {
+export const signupAction = async ({ payload }: { payload: any }) => {
   try {
     const res = await fetch(process.env.BASE_URL + "signup", {
       cache: "no-cache",
@@ -68,20 +80,20 @@ export const deleteCartEntry = async (productid: string) => {
   // }
 };
 export const addToCart = async (body: any) => {
-  // try {
-  //   const response = await fetch("/api/cart", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(body),
-  //   });
-  //   const { message } = await response.json();
-  //   const getData = await getCartItems();
-  //   toast.success(message); // Handle the response data
-  //   return getData;
-  // } catch (error) {
-  //   toast.error("An Error Occured");
-  //   console.log("error", error);
-  // }
+  try {
+    // const response = await fetch("/api/cart", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(body),
+    // });
+    // const { message } = await response.json();
+    // const getData = await getCartItems();
+    // toast.success(message); // Handle the response data
+    // return getData;
+  } catch (error) {
+    toast.error("An Error Occured");
+    console.log("error", error);
+  }
 };

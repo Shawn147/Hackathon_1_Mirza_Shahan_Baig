@@ -4,28 +4,33 @@ import { Header } from "@/containers";
 import { loginAction } from "@/store";
 import { MyContext } from "@/store/MyContext";
 import Link from "next/link";
-import { useCallback, useContext, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
+import { Toaster } from "react-hot-toast";
 
-const SignupPage = () => {
+const Login = () => {
   const { state, dispatch } = useContext(MyContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const loginAct = useCallback(() => {
-  //   // const payload = {
-  //   //   email,
-  //   //   password,
-  //   // };
-  //   // loginAction({ payload, dispatch });
-  //   console.log("pro", process.env.BASE_URL);
-  // }, []);
+  const loginAct = (e) => {
+    e.preventDefault();
+    const payload = {
+      email,
+      password,
+    };
+    loginAction({ payload, dispatch });
+  };
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("profile");
+    if (isLoggedIn) {
+      window.location.assign("http://localhost:3000/");
+    }
+  }, []);
   return (
     <div className="flex h-screen bg-gray-100">
       <Header />
       <div className="m-auto w-1/3 p-6 bg-white shadow-lg rounded-lg">
         <h1 className="text-2xl text-center font-semibold mb-4">Login</h1>
-        <form
-        // onSubmit={loginAct}
-        >
+        <form onSubmit={loginAct}>
           <div className="mb-4">
             <label htmlFor="email" className="block font-medium mb-1">
               Email
@@ -51,7 +56,6 @@ const SignupPage = () => {
           <GlobalBtn
             isLoading={state.isLoading}
             disabled={state.isLoading || !email || !password}
-            // onPress={loginAct}
             title="Login"
           />
         </form>
@@ -62,8 +66,9 @@ const SignupPage = () => {
           </Link>
         </p>
       </div>
+      <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
 };
 
-export default SignupPage;
+export default Login;

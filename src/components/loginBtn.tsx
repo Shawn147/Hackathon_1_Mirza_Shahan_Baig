@@ -6,7 +6,7 @@ const GlobalBtn = ({
   isLoading,
 }: {
   title: string;
-  onPress: () => void;
+  onPress?: () => void;
   disabled?: boolean;
   isLoading: boolean;
 }) => {
