@@ -22,7 +22,9 @@ const Login = () => {
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("profile");
     if (isLoggedIn) {
-      window.location.assign("http://localhost:3000/");
+      window.location.assign(
+        "https://hackathon-1-mirza-shahan-baig-ygo4.vercel.app/"
+      );
     }
   }, []);
   return (

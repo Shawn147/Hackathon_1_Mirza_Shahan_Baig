@@ -40,7 +40,9 @@ export const loginAction = async ({
     } else {
       localStorage.setItem("profile", JSON.stringify(resJson.userData));
       toast.success(resJson.message);
-      window.location.assign("http://localhost:3000/");
+      window.location.assign(
+        "https://hackathon-1-mirza-shahan-baig-ygo4.vercel.app/"
+      );
     }
   } catch (err) {
     console.log("err", err);
