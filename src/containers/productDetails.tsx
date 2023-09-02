@@ -8,7 +8,7 @@ import { Product } from "@/types";
 import React, { useContext, useEffect, useMemo, useState } from "react";
 
 const ProductDetail = ({ id }: { id: string }) => {
-  const { state, dispatch } = useContext(MyContext);
+  const { state, dispatch } = useContext<any>(MyContext);
   const [product, setProduct] = useState<Product | any>(null);
   const [img, setImg] = useState<string>(images.girl);
   const [quantity, setQuantity] = useState<number>(1);

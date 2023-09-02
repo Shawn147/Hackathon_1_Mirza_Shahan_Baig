@@ -21,7 +21,6 @@ export const loginAction = async ({
 }: {
   payload: any;
   dispatch: any;
-  router: any;
 }) => {
   dispatch({ type: "ISLOADING", payload: true });
   try {

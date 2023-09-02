@@ -58,9 +58,9 @@ export async function POST(request: NextRequest) {
       process.env.JWT_SECRET as string,
       { expiresIn: "7d" }
     );
-    delete insertedUsers[0].password;
+    const { password: _, ...rest } = insertedUsers[0];
     return NextResponse.json({
-      userData: { token, user: insertedUsers[0] },
+      userData: { token, user: rest },
       status: 200,
       message: "Success",
     });

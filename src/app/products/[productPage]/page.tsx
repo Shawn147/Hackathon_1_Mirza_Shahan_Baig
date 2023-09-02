@@ -1,11 +1,11 @@
 import { Footer, Header, ProductDetails } from "@/containers";
 import React from "react";
 
-const ProductPage = (props) => {
+const ProductPage = ({ params }: any) => {
   return (
     <div className="mt-32">
       <Header />
-      <ProductDetails id={props.params.productPage} />
+      <ProductDetails id={params.productPage} />
       <Footer />
     </div>
   );

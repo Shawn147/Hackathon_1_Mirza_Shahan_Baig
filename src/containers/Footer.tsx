@@ -1,7 +1,7 @@
 import { images } from "@/helpers/utils";
 
 const Footer = () => {
-  const renderList = (item, index) => (
+  const renderList = (item: string, index: number) => (
     <li key={index.toString()}>
       <a href="#" className="text-gray-400 hover:text-black">
         {item}

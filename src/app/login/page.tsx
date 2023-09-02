@@ -8,10 +8,10 @@ import { useCallback, useContext, useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
 
 const Login = () => {
-  const { state, dispatch } = useContext(MyContext);
+  const { state, dispatch } = useContext<any>(MyContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const loginAct = (e) => {
+  const loginAct = (e: any) => {
     e.preventDefault();
     const payload = {
       email,

@@ -2,6 +2,7 @@
 import { createContext, useReducer } from "react";
 
 // Create a new context
+
 export const MyContext = createContext("light");
 
 // Create a reducer function
