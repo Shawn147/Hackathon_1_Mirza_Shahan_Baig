@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
     }
     const insertedUsers = await drizzle(client)
       .insert(users)
-      .values({ name, email, password: hashedPassword })
+      .values({ name, email, password: hashedPassword, dob: new Date() })
       .returning();
 
     const token = jwt.sign(

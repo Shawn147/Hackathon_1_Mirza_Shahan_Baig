@@ -8,15 +8,10 @@ import "tailwindcss/tailwind.css";
 const str = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY + "");
 
 const Cart = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const handleToggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
   return (
     <main className="">
       <Elements stripe={str}>
-        <Header handleToggleSidebar={handleToggleSidebar} />
-        {isSidebarOpen ? <Sidebar /> : <CartCont />}
+        <Header />
       </Elements>
     </main>
   );
