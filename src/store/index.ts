@@ -27,7 +27,7 @@ export const loginAction = async ({
     const res = await fetch(process.env.BASE_URL + "auth/login", {
       cache: "no-cache",
       method: "POST",
-      mode: "cors",
+      mode: "no-cors",
       headers: {
         Accept: "application/json",
 
@@ -55,6 +55,7 @@ export const signupAction = async ({ payload }: { payload: any }) => {
   try {
     const res = await fetch(process.env.BASE_URL + "signup", {
       cache: "no-cache",
+      mode: "no-cors",
       body: payload,
     });
     const resJson = res.json();
