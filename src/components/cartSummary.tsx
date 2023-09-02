@@ -20,6 +20,7 @@ const CartSummary = () => {
     // Create a Checkout Session.
     dispatch({ type: "ISLOADING", payload: true });
     fetch("/api/cart/payment", {
+      mode: "cors",
       method: "POST",
       body: JSON.stringify({ total, product: state.cartItems[0]?.productid }),
     })

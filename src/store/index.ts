@@ -27,8 +27,10 @@ export const loginAction = async ({
     const res = await fetch(process.env.BASE_URL + "auth/login", {
       cache: "no-cache",
       method: "POST",
+      mode: "cors",
       headers: {
         Accept: "application/json",
+
         "Content-Type": "application/json",
       },
       body: JSON.stringify(payload),
