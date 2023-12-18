@@ -12,6 +12,7 @@ const Cart = () => {
     <main className="">
       <Elements stripe={str}>
         <Header />
+        <CartCont />
       </Elements>
     </main>
   );
